@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { $Enums, Role } from "@prisma/client";
+import { Role } from "../../../generated/prisma/enums";
 import { generateToken } from "../../utils/jwt";
 import prisma from "../../config/prisma";
 
