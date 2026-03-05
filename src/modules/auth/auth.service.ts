@@ -10,8 +10,7 @@ export class AuthService {
     return prisma.user.create({
       data: {
         ...data,
-        password: hashed,
-        role: Role.buyer
+        password: hashed
       }
     });
   }

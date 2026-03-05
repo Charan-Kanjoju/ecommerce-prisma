@@ -13,7 +13,7 @@ export class CartController {
     const item = await CartService.addToCart(
       req.user.id,
       productId,
-      Number(quantity)
+      quantity
     );
 
     res.status(201).json(item);
