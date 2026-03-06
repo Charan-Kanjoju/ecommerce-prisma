@@ -11,6 +11,10 @@ export class ProductController {
     const products = await ProductService.getAll();
     res.json(products);
   }
+  static async getById(req: Request, res: Response) {
+  const product = await ProductService.getById(req.params.id);
+  res.json(product);
+}
 
   static async update(req: any, res: Response) {
     const product = await ProductService.update(

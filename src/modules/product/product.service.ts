@@ -1,15 +1,25 @@
 import prisma from "../../config/prisma";
 
-
 export class ProductService {
   static async create(data: any, sellerId: string) {
     return prisma.product.create({
-      data: { ...data, sellerId }
+      data: { ...data, sellerId },
     });
   }
 
   static async getAll() {
     return prisma.product.findMany();
+  }
+  static async getById(id: string) {
+    const product = await prisma.product.findUnique({
+      where: { id },
+    });
+
+    if (!product) {
+      throw new Error("Product not found");
+    }
+
+    return product;
   }
 
   static async update(id: string, sellerId: string, data: any) {

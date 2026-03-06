@@ -6,6 +6,7 @@ import { authorize } from "../../middlewares/role.middleware";
 const router = Router();
 
 router.get("/", ProductController.getAll);
+router.get("/:id", ProductController.getById);
 router.post("/", protect, authorize("seller"), ProductController.create);
 router.put("/:id", protect, authorize("seller"), ProductController.update);
 router.delete("/:id", protect, authorize("seller"), ProductController.delete);
